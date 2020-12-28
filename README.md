@@ -3,6 +3,5 @@
 # team hoody
 * developer : 김수민, 김하늘, 황동준
 
+* 첫번째 : git 공부
 
-wow!
-wowow!
