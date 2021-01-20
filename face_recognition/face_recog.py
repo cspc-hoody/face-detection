@@ -37,6 +37,10 @@ class FaceRecog():
         self.face_names = []
         self.process_this_frame = True
 
+        # count person who attend lab
+        self.in_lab_set = set()
+        self.in_lab_list = [0]
+
     def __del__(self):
         del self.camera
 
@@ -65,9 +69,18 @@ class FaceRecog():
                 # tolerance: How much distance between faces to consider it a match. Lower is more strict.
                 # 0.6 is typical best performance.
                 name = "Unknown"
-                if min_value < 0.4:
+                if min_value < 0.45:
                     index = np.argmin(distances)
                     name = self.known_face_names[index]
+                    name = name.split('_')[0]
+                    self.in_lab_list[0] = name
+                    in_lab_set_compare = set(self.in_lab_list)
+                    in_lab_set_compare = in_lab_set_compare & self.in_lab_set
+                    if not in_lab_set_compare:
+                        f_write = open('R914_lab_user.txt', 'a')
+                        self.in_lab_set.add(name)
+                        f_write.write(str(name) + '\n')
+                        f_write.close()
 
                 self.face_names.append(name)
 
