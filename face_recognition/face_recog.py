@@ -40,6 +40,8 @@ class FaceRecog():
         # count person who attend lab
         self.in_lab_set = set()
         self.in_lab_list = [0]
+        self.in_lab_dic = {}
+        self.dic_count = 0
 
     def __del__(self):
         del self.camera
@@ -77,6 +79,8 @@ class FaceRecog():
                     in_lab_set_compare = set(self.in_lab_list)
                     in_lab_set_compare = in_lab_set_compare & self.in_lab_set
                     if not in_lab_set_compare:
+                        self.in_lab_dic[name] = self.dic_count
+                        self.dic_count+=1
                         f_write = open('R914_lab_user.txt', 'a')
                         self.in_lab_set.add(name)
                         f_write.write(str(name) + '\n')
@@ -130,3 +134,5 @@ if __name__ == '__main__':
     # do a bit of cleanup
     cv2.destroyAllWindows()
     print('finish')
+    f_write = open('R914_lab_user.txt', 'w')
+    f_write.close()
