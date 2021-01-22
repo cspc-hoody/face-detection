@@ -1,7 +1,4 @@
-# face-detection
+# Haar_Cascade face recognition Program
 
-# team hoody
-* developer : 김수민, 김하늘, 황동준
-
-* 첫번째 : git 공부
-
+## It has low accuracy so we change face recognition library to dlib.
+## Please checkout main branch first.
