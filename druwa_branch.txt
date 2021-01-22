@@ -1,6 +1,0 @@
-master가 수정되어 있을 수 있으니까 먼저 pull을 해주던지,
-아니면 git에 올라가 있는 파일들의 버전을 확인하여 pull을 해주도록 합시다.
-
-수정한 후 merge를 통해서 master을 update 해봅시다.
-
-자신만의 branch를 만들고 자신의 branch만 먼저 update할 수 있도록 합니다.
