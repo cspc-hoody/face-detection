@@ -21,8 +21,9 @@ class VideoCamera(object):
         return frame
 
 
-if __name__ == '__main__':
-    cam = VideoCamera()
+if __name__ == '__main__': #인터프리터가 실행 중에 만들어둔 글로벌 변수 : __name__
+    #else문을 사용하여 import시에서만 실행될 수 있게 할 수도 있음
+    cam = VideoCamera() #class 생성
     while True:
         frame = cam.get_frame()
 
